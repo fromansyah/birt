@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.21" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.5.2.v20100208 Build &lt;2.5.2.v20100210-0630></property>
+    <property name="units">in</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">283</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">283</property>
+        </structure>
+    </list-property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <parameters>
+        <scalar-parameter name="from_date" id="177">
+            <text-property name="promptText">Date From (mm/dd/yyyy)</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.month(BirtDateTime.today(),1)+'/1/'+BirtDateTime.year(BirtDateTime.today())</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">M/d/yyyy</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="to_date" id="178">
+            <text-property name="promptText">Date To (m/d/yyyy)</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.addDay(new Date(BirtDateTime.year(BirtDateTime.today()),BirtDateTime.month(BirtDateTime.today(),1),1,0,0,0),-1)</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">M/d/yyyy</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Attorney" id="284">
+            <text-property name="promptText">Attorney</text-property>
+            <property name="valueType">dynamic</property>
+            <property name="isRequired">false</property>
+            <property name="dataSetName">dsetLawyer</property>
+            <expression name="valueExpr" type="javascript">dataSetRow["EMPLOYEE_ID"]</expression>
+            <expression name="labelExpr" type="javascript">dataSetRow["EMP_INITIAL"]</expression>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="SSEKDS" id="114">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.0.40:1521:ssekdb</property>
+            <property name="odaUser">ssek_prod</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">c3Nla19wcm9k</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetTimeEntryDaily" id="115">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">EMP_INITIAL</property>
+                    <text-property name="displayName">EMP_INITIAL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CLIENT_NAME</property>
+                    <text-property name="displayName">CLIENT_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MATTER_NAME</property>
+                    <text-property name="displayName">MATTER_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ENTRY_DATE</property>
+                    <text-property name="displayName">ENTRY_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TOTAL_TIME</property>
+                    <text-property name="displayName">TOTAL_TIME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ENTRY_TYPE</property>
+                    <text-property name="displayName">ENTRY_TYPE</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">EMP_INITIAL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CLIENT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">MATTER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ENTRY_DATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">TOTAL_TIME</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">ENTRY_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[importPackage(Packages.java.io)
+importPackage(Packages.java.text)
+importPackage(Packages.java.util)
+importPackage(Packages.org.eclipse.birt.report.model.api)
+importPackage(Packages.org.eclipse.birt.report.engine.api)
+importPackage(Packages.org.eclipse.birt.report.engine.api.script.element)
+fos = new java.io.FileOutputStream("demo_multivalue_debug.txt"); //Logging
+printWriter = new java.io.PrintWriter(fos); //For Debugging
+df = new SimpleDateFormat("dd-MMM-yyyy");
+lawyer_string='';
+if(reportContext.getParameterValue("Attorney")!=null)
+	lawyer_string= "  and a.employee_id="+reportContext.getParameterValue("Attorney")+"\n";
+
+this.queryText = "select emp_initial,client_name,matter_name,entry_date,total_time,\n" + 
+        "case when entry_type = 0 then 'Marketing'\n" + 
+        "else case when entry_type = 1 then 'Client'\n" + 
+        "    else 'Office' \n" + 
+        "    end\n" + 
+        "end entry_type\n" + 
+        "from\n" + 
+        "( select emp_initial,matter_id,entry_date,sum(total_time) as total_time,entry_type\n" + 
+        "  from final_time_entry a,employee b\n" + 
+        "  where a.employee_id=b.employee_id\n" + 
+        "  and entry_date>='"+df.format(reportContext.getParameterValue("from_date"))+"'\n" + 
+        "  and entry_date<='"+df.format(reportContext.getParameterValue("to_date"))+"'\n" +lawyer_string+
+        "  group by emp_initial,matter_id,entry_date,entry_type\n" + 
+        ")a,client_matter b,client c\n" + 
+        "where a.matter_id=b.client_matter_id \n" + 
+        "and b.client_id= c.client_id\n" + 
+        "order by emp_initial,emp_initial,client_name,matter_name asc";
+
+printWriter.println("Query:"  + this.queryText);			
+printWriter.close();]]></method>
+            <property name="dataSource">SSEKDS</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">EMP_INITIAL</property>
+                    <property name="nativeName">EMP_INITIAL</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CLIENT_NAME</property>
+                    <property name="nativeName">CLIENT_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">MATTER_NAME</property>
+                    <property name="nativeName">MATTER_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ENTRY_DATE</property>
+                    <property name="nativeName">ENTRY_DATE</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">TOTAL_TIME</property>
+                    <property name="nativeName">TOTAL_TIME</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ENTRY_TYPE</property>
+                    <property name="nativeName">ENTRY_TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select emp_initial,client_name,matter_name,entry_date,total_time,
+case when entry_type = 0 then 'Marketing'
+else case when entry_type = 1 then 'Client'
+    else 'Office' 
+    end
+end entry_type
+from
+( select emp_initial,matter_id,entry_date,sum(total_time) as total_time,entry_type
+  from final_time_entry a,employee b
+  where a.employee_id=b.employee_id
+  and entry_date>='1-mar-2011'
+  and entry_date<='31-mar-2011'
+  group by emp_initial,matter_id,entry_date,entry_type
+)a,client_matter b,client c
+where a.matter_id=b.client_matter_id 
+and b.client_id= c.client_id
+order by emp_initial,emp_initial,client_name,matter_name asc]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>EMP_INITIAL</design:name>
+            <design:position>1</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EMP_INITIAL</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EMP_INITIAL</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>CLIENT_NAME</design:name>
+            <design:position>2</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CLIENT_NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CLIENT_NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>MATTER_NAME</design:name>
+            <design:position>3</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>MATTER_NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>MATTER_NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>ENTRY_DATE</design:name>
+            <design:position>4</design:position>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ENTRY_DATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ENTRY_DATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>7</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>TOTAL_TIME</design:name>
+            <design:position>5</design:position>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TOTAL_TIME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TOTAL_TIME</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetLawyer" id="283">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">EMPLOYEE_ID</property>
+                    <text-property name="displayName">EMPLOYEE_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EMP_INITIAL</property>
+                    <text-property name="displayName">EMP_INITIAL</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">EMPLOYEE_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">EMP_INITIAL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">SSEKDS</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">EMPLOYEE_ID</property>
+                    <property name="nativeName">EMPLOYEE_ID</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">EMP_INITIAL</property>
+                    <property name="nativeName">EMP_INITIAL</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select employee_id,emp_initial from employee a
+where a.emp_initial is not null
+order by emp_initial]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>EMPLOYEE_ID</design:name>
+            <design:position>1</design:position>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EMPLOYEE_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EMPLOYEE_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>EMP_INITIAL</design:name>
+            <design:position>2</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>14</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EMP_INITIAL</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EMP_INITIAL</design:label>
+            <design:formattingHints>
+              <design:displaySize>14</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="TimeEntryDailyCube" id="116">
+            <property name="dimensions">
+                <tabular-dimension name="Group1" id="117">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="118">
+                            <property name="levels">
+                                <tabular-level name="EMP_INITIAL" id="119">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">EMP_INITIAL</property>
+                                </tabular-level>
+                                <tabular-level name="CLIENT_NAME" id="120">
+                                    <property name="dataType">string</property>
+                                    <property name="levelType">dynamic</property>
+                                    <property name="columnName">CLIENT_NAME</property>
+                                    <expression name="displayColumnName" type="javascript">dataSetRow["CLIENT_NAME"]</expression>
+                                </tabular-level>
+                                <tabular-level name="MATTER_NAME" id="121">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">MATTER_NAME</property>
+                                </tabular-level>
+                                <tabular-level name="ENTRY_TYPE" id="285">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">ENTRY_TYPE</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Group2" id="122">
+                    <property name="isTimeType">true</property>
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="123">
+                            <property name="levels">
+                                <tabular-level name="day-of-year" id="124">
+                                    <property name="dataType">integer</property>
+                                    <property name="dateTimeLevelType">day-of-year</property>
+                                    <property name="dateTimeFormat">MMMM dd, yy</property>
+                                    <list-property name="attributes">
+                                        <structure>
+                                            <property name="name">DateTime</property>
+                                            <property name="dataType">date-time</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="columnName">ENTRY_DATE</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="125">
+                    <property name="measures">
+                        <tabular-measure name="TOTAL_TIME" id="126">
+                            <expression name="measureExpression">dataSetRow["TOTAL_TIME"]</expression>
+                            <property name="dataType">decimal</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">dsetTimeEntryDaily</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">20in</property>
+            <property name="width">20in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="1837">
+            <property name="fontSize">12pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">SOEWITO SUHARDIMAN EDDYMURTHY KARDONO</text-property>
+        </label>
+        <label id="1838">
+            <property name="fontSize">12pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">Time Entry Summary Daily</text-property>
+        </label>
+        <text id="1839">
+            <property name="fontWeight">bold</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[Period : <VALUE-OF format="Long Date">params["from_date"].value</VALUE-OF> - <VALUE-OF format="Long Date">params["to_date"].value</VALUE-OF>]]></text-property>
+        </text>
+        <label id="1840"/>
+        <grid id="363">
+            <column id="364"/>
+            <row id="365">
+                <cell id="366">
+                    <extended-item extensionName="Crosstab" extensionVersion="2.5.0" id="127">
+                        <property name="measures">
+                            <extended-item extensionName="MeasureView" id="145">
+                                <property name="measure">TOTAL_TIME</property>
+                                <property name="detail">
+                                    <extended-item extensionName="AggregationCell" id="146">
+                                        <property name="aggregationOnRow">Group1/MATTER_NAME</property>
+                                        <property name="aggregationOnColumn">Group2/day-of-year</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="content">
+                                            <data id="147">
+                                                <structure name="numberFormat">
+                                                    <property name="category">General Number</property>
+                                                    <property name="pattern">General Number</property>
+                                                </structure>
+                                                <property name="textAlign">right</property>
+                                                <property name="resultSetColumn">TOTAL_TIME_Group1/MATTER_NAME_Group2/day-of-year</property>
+                                            </data>
+                                        </property>
+                                        <property name="width">30px</property>
+                                    </extended-item>
+                                </property>
+                                <property name="aggregations">
+                                    <extended-item extensionName="AggregationCell" id="158">
+                                        <property name="aggregationOnColumn">Group2/day-of-year</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="content">
+                                            <data id="159">
+                                                <property name="fontWeight">bold</property>
+                                                <structure name="numberFormat">
+                                                    <property name="category">General Number</property>
+                                                    <property name="pattern">General Number</property>
+                                                </structure>
+                                                <property name="textAlign">right</property>
+                                                <property name="resultSetColumn">TOTAL_TIME_Group2/day-of-year</property>
+                                            </data>
+                                        </property>
+                                    </extended-item>
+                                    <extended-item extensionName="AggregationCell" id="368">
+                                        <property name="aggregationOnRow">Group1/EMP_INITIAL</property>
+                                        <property name="aggregationOnColumn">Group2/day-of-year</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="content">
+                                            <data id="369">
+                                                <property name="resultSetColumn">TOTAL_TIME_Group1/EMP_INITIAL_Group2/day-of-year</property>
+                                            </data>
+                                        </property>
+                                    </extended-item>
+                                    <extended-item extensionName="AggregationCell" id="372">
+                                        <property name="aggregationOnRow">Group1/EMP_INITIAL</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="content">
+                                            <data id="373">
+                                                <structure name="numberFormat">
+                                                    <property name="category">Currency</property>
+                                                    <property name="pattern">#,##0.00</property>
+                                                </structure>
+                                                <property name="textAlign">right</property>
+                                                <property name="resultSetColumn">TOTAL_TIME_Group1/EMP_INITIAL</property>
+                                            </data>
+                                        </property>
+                                    </extended-item>
+                                    <extended-item extensionName="AggregationCell" id="374">
+                                        <property name="aggregationOnRow">Group1/MATTER_NAME</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="content">
+                                            <data id="375">
+                                                <structure name="numberFormat">
+                                                    <property name="category">Currency</property>
+                                                    <property name="pattern">#,##0.00</property>
+                                                </structure>
+                                                <property name="textAlign">right</property>
+                                                <property name="resultSetColumn">TOTAL_TIME_Group1/MATTER_NAME</property>
+                                            </data>
+                                        </property>
+                                        <property name="width">0.6770833333333334in</property>
+                                    </extended-item>
+                                    <extended-item extensionName="AggregationCell" id="376">
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="content">
+                                            <data id="377">
+                                                <structure name="numberFormat">
+                                                    <property name="category">Currency</property>
+                                                    <property name="pattern">#,##0.00</property>
+                                                </structure>
+                                                <property name="textAlign">right</property>
+                                                <property name="resultSetColumn">TOTAL_TIME</property>
+                                            </data>
+                                        </property>
+                                    </extended-item>
+                                </property>
+                                <property name="header">
+                                    <extended-item extensionName="CrosstabCell" id="148">
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                    </extended-item>
+                                    <extended-item extensionName="CrosstabCell" id="378"/>
+                                </property>
+                            </extended-item>
+                        </property>
+                        <property name="rows">
+                            <extended-item extensionName="CrosstabView" id="129">
+                                <property name="grandTotal">
+                                    <extended-item extensionName="CrosstabCell" id="157">
+                                        <property name="content">
+                                            <label id="160">
+                                                <text-property name="text">Grand Total</text-property>
+                                            </label>
+                                        </property>
+                                        <property name="backgroundColor">#C0C0C0</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                    </extended-item>
+                                </property>
+                                <property name="views">
+                                    <extended-item extensionName="DimensionView" id="130">
+                                        <property name="dimension">Group1</property>
+                                        <property name="levels">
+                                            <extended-item extensionName="LevelView" name="NewLevel View" id="131">
+                                                <property name="level">Group1/EMP_INITIAL</property>
+                                                <property name="member">
+                                                    <extended-item extensionName="CrosstabCell" id="132">
+                                                        <property name="content">
+                                                            <data name="EMP_INITIAL" id="133">
+                                                                <property name="textAlign">left</property>
+                                                                <property name="resultSetColumn">EMP_INITIAL</property>
+                                                            </data>
+                                                        </property>
+                                                        <property name="backgroundColor">#C0C0C0</property>
+                                                        <property name="borderTopStyle">solid</property>
+                                                        <property name="borderTopWidth">thin</property>
+                                                        <property name="borderTopColor">#000000</property>
+                                                        <property name="borderLeftStyle">solid</property>
+                                                        <property name="borderLeftWidth">thin</property>
+                                                        <property name="borderLeftColor">#000000</property>
+                                                        <property name="borderBottomStyle">solid</property>
+                                                        <property name="borderBottomWidth">thin</property>
+                                                        <property name="borderBottomColor">#000000</property>
+                                                        <property name="borderRightStyle">solid</property>
+                                                        <property name="borderRightWidth">thin</property>
+                                                        <property name="borderRightColor">#000000</property>
+                                                        <property name="width">50px</property>
+                                                    </extended-item>
+                                                </property>
+                                                <property name="aggregationHeader">
+                                                    <extended-item extensionName="CrosstabCell" id="367">
+                                                        <property name="content">
+                                                            <data name="EMP_INITIAL_TOTAL" id="370">
+                                                                <property name="resultSetColumn">EMP_INITIAL_TOTAL</property>
+                                                            </data>
+                                                        </property>
+                                                        <property name="borderTopStyle">solid</property>
+                                                        <property name="borderTopWidth">thin</property>
+                                                        <property name="borderTopColor">#000000</property>
+                                                        <property name="borderLeftStyle">solid</property>
+                                                        <property name="borderLeftWidth">thin</property>
+                                                        <property name="borderLeftColor">#000000</property>
+                                                        <property name="borderBottomStyle">solid</property>
+                                                        <property name="borderBottomWidth">thin</property>
+                                                        <property name="borderBottomColor">#000000</property>
+                                                        <property name="borderRightStyle">solid</property>
+                                                        <property name="borderRightWidth">thin</property>
+                                                        <property name="borderRightColor">#000000</property>
+                                                    </extended-item>
+                                                </property>
+                                            </extended-item>
+                                            <extended-item extensionName="LevelView" name="NewLevel View1" id="134">
+                                                <property name="level">Group1/CLIENT_NAME</property>
+                                                <property name="member">
+                                                    <extended-item extensionName="CrosstabCell" id="135">
+                                                        <property name="content">
+                                                            <data name="CLIENT_NAME" id="136">
+                                                                <property name="textAlign">left</property>
+                                                                <property name="resultSetColumn">CLIENT_NAME</property>
+                                                            </data>
+                                                        </property>
+                                                        <property name="backgroundColor">#C0C0C0</property>
+                                                        <property name="borderTopStyle">solid</property>
+                                                        <property name="borderTopWidth">thin</property>
+                                                        <property name="borderTopColor">#000000</property>
+                                                        <property name="borderLeftStyle">solid</property>
+                                                        <property name="borderLeftWidth">thin</property>
+                                                        <property name="borderLeftColor">#000000</property>
+                                                        <property name="borderBottomStyle">solid</property>
+                                                        <property name="borderBottomWidth">thin</property>
+                                                        <property name="borderBottomColor">#000000</property>
+                                                        <property name="borderRightStyle">solid</property>
+                                                        <property name="borderRightWidth">thin</property>
+                                                        <property name="borderRightColor">#000000</property>
+                                                        <property name="width">50px</property>
+                                                    </extended-item>
+                                                </property>
+                                            </extended-item>
+                                            <extended-item extensionName="LevelView" name="NewLevel View2" id="137">
+                                                <property name="level">Group1/MATTER_NAME</property>
+                                                <property name="member">
+                                                    <extended-item extensionName="CrosstabCell" id="138">
+                                                        <property name="content">
+                                                            <data name="MATTER_NAME" id="139">
+                                                                <property name="textAlign">left</property>
+                                                                <property name="resultSetColumn">MATTER_NAME</property>
+                                                            </data>
+                                                        </property>
+                                                        <property name="backgroundColor">#C0C0C0</property>
+                                                        <property name="borderTopStyle">solid</property>
+                                                        <property name="borderTopWidth">thin</property>
+                                                        <property name="borderTopColor">#000000</property>
+                                                        <property name="borderLeftStyle">solid</property>
+                                                        <property name="borderLeftWidth">thin</property>
+                                                        <property name="borderLeftColor">#000000</property>
+                                                        <property name="borderBottomStyle">solid</property>
+                                                        <property name="borderBottomWidth">thin</property>
+                                                        <property name="borderBottomColor">#000000</property>
+                                                        <property name="borderRightStyle">solid</property>
+                                                        <property name="borderRightWidth">thin</property>
+                                                        <property name="borderRightColor">#000000</property>
+                                                        <property name="width">50px</property>
+                                                    </extended-item>
+                                                </property>
+                                            </extended-item>
+                                        </property>
+                                    </extended-item>
+                                </property>
+                                <property name="grandTotalLocation">after</property>
+                            </extended-item>
+                        </property>
+                        <property name="columns">
+                            <extended-item extensionName="CrosstabView" id="140">
+                                <property name="grandTotal">
+                                    <extended-item extensionName="CrosstabCell" id="371">
+                                        <property name="content">
+                                            <label id="380">
+                                                <text-property name="text">Grand Total</text-property>
+                                            </label>
+                                        </property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                    </extended-item>
+                                </property>
+                                <property name="views">
+                                    <extended-item extensionName="DimensionView" id="141">
+                                        <property name="dimension">Group2</property>
+                                        <property name="levels">
+                                            <extended-item extensionName="LevelView" name="NewLevel View3" id="142">
+                                                <property name="level">Group2/day-of-year</property>
+                                                <property name="member">
+                                                    <extended-item extensionName="CrosstabCell" id="143">
+                                                        <property name="content">
+                                                            <data name="DateTime" id="150">
+                                                                <structure name="dateTimeFormat">
+                                                                    <property name="category">Custom</property>
+                                                                    <property name="pattern">M/d/yy</property>
+                                                                </structure>
+                                                                <property name="textTransform">none</property>
+                                                                <property name="resultSetColumn">DateTime</property>
+                                                            </data>
+                                                        </property>
+                                                        <property name="backgroundColor">#C0C0C0</property>
+                                                        <property name="borderTopStyle">solid</property>
+                                                        <property name="borderTopWidth">thin</property>
+                                                        <property name="borderTopColor">#000000</property>
+                                                        <property name="borderLeftStyle">solid</property>
+                                                        <property name="borderLeftWidth">thin</property>
+                                                        <property name="borderLeftColor">#000000</property>
+                                                        <property name="borderBottomStyle">solid</property>
+                                                        <property name="borderBottomWidth">thin</property>
+                                                        <property name="borderBottomColor">#000000</property>
+                                                        <property name="borderRightStyle">solid</property>
+                                                        <property name="borderRightWidth">thin</property>
+                                                        <property name="borderRightColor">#000000</property>
+                                                    </extended-item>
+                                                </property>
+                                            </extended-item>
+                                        </property>
+                                    </extended-item>
+                                </property>
+                                <property name="grandTotalLocation">after</property>
+                            </extended-item>
+                        </property>
+                        <property name="header">
+                            <extended-item extensionName="CrosstabCell" id="128">
+                                <property name="content">
+                                    <grid id="352">
+                                        <column id="353">
+                                            <property name="width">50px</property>
+                                        </column>
+                                        <column id="354">
+                                            <property name="width">50px</property>
+                                        </column>
+                                        <column id="355">
+                                            <property name="width">50px</property>
+                                        </column>
+                                        <row id="356">
+                                            <cell id="357">
+                                                <label id="360">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">Attorney</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="358">
+                                                <label id="361">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">Client</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="359">
+                                                <label id="362">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">Matter</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </grid>
+                                </property>
+                                <property name="backgroundColor">#C0C0C0</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                            </extended-item>
+                        </property>
+                        <property name="display">block</property>
+                        <property name="cube">TimeEntryDailyCube</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">EMP_INITIAL</property>
+                                <expression name="expression">dimension["Group1"]["EMP_INITIAL"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CLIENT_NAME</property>
+                                <expression name="expression">dimension["Group1"]["CLIENT_NAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">MATTER_NAME</property>
+                                <expression name="expression">dimension["Group1"]["MATTER_NAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">day-of-year</property>
+                                <expression name="expression">dimension["Group2"]["day-of-year"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TOTAL_TIME_Group1/MATTER_NAME_Group2/day-of-year</property>
+                                <expression name="expression">measure["TOTAL_TIME"]</expression>
+                                <property name="dataType">decimal</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Group1/MATTER_NAME</value>
+                                    <value>Group2/day-of-year</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                            </structure>
+                            <structure>
+                                <property name="name">DateTime</property>
+                                <expression name="expression">dimension["Group2"]["day-of-year"]["DateTime"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TOTAL_TIME_Group2/day-of-year</property>
+                                <expression name="expression">measure["TOTAL_TIME"]</expression>
+                                <property name="dataType">decimal</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Group2/day-of-year</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TOTAL_TIME_Group1/EMP_INITIAL_Group2/day-of-year</property>
+                                <expression name="expression">measure["TOTAL_TIME"]</expression>
+                                <property name="dataType">decimal</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Group1/EMP_INITIAL</value>
+                                    <value>Group2/day-of-year</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                            </structure>
+                            <structure>
+                                <property name="name">EMP_INITIAL_TOTAL</property>
+                                <expression name="expression">dimension["Group1"]["EMP_INITIAL"]+" TOTAL"</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TOTAL_TIME_Group1/EMP_INITIAL</property>
+                                <expression name="expression">measure["TOTAL_TIME"]</expression>
+                                <property name="dataType">decimal</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Group1/EMP_INITIAL</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TOTAL_TIME_Group1/MATTER_NAME</property>
+                                <expression name="expression">measure["TOTAL_TIME"]</expression>
+                                <property name="dataType">decimal</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Group1/MATTER_NAME</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TOTAL_TIME</property>
+                                <expression name="expression">measure["TOTAL_TIME"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="aggregateFunction">SUM</property>
+                            </structure>
+                        </list-property>
+                    </extended-item>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

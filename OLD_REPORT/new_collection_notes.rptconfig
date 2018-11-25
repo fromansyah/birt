@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.21" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__cutoff_date_1672_0</property>
+            <property name="value">3/31/2014</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__client_matter_32_1</property>
+            <property name="value">--No Selection--</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__period_from_278_2</property>
+            <property name="value">1/1/2014</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__period_to_279_3</property>
+            <property name="value">3/31/2014</property>
+        </structure>
+        <structure>
+            <property name="name">period_from_278_4</property>
+            <property name="value">2014-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">period_from_278_type_</property>
+            <property name="value">date</property>
+        </structure>
+        <structure>
+            <property name="name">client_matter_32_5</property>
+            <property name="value">0</property>
+        </structure>
+        <structure>
+            <property name="name">client_matter_32_type_</property>
+            <property name="value">decimal</property>
+        </structure>
+        <structure>
+            <property name="name">client_matter_32_expr_</property>
+            <property name="value">dataSetRow["CLIENT_MATTER_ID"]</property>
+        </structure>
+        <structure>
+            <property name="name">period_to_279_6</property>
+            <property name="value">2014-03-31</property>
+        </structure>
+        <structure>
+            <property name="name">period_to_279_type_</property>
+            <property name="value">date</property>
+        </structure>
+        <structure>
+            <property name="name">cutoff_date_1672_7</property>
+            <property name="value">3/31/2014</property>
+        </structure>
+        <structure>
+            <property name="name">cutoff_date_1672_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

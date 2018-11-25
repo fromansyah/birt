@@ -1,0 +1,2 @@
+Feb 11, 2014 4:30:56 PM org.eclipse.birt.report.engine.emitter.excel.layout.Page needOutputInMasterPage
+WARNING: Excel page header and footer don't support html text.

@@ -1,0 +1,2074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.2.v201301221637 Build &lt;4.2.2.v20130206-1509></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">875</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">875</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">875</property>
+        </structure>
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">362</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">362</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">362</property>
+        </structure>
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">7</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="start_date" id="48">
+            <text-property name="helpText">1/31/2015</text-property>
+            <text-property name="promptText">From (M/d/yyyy)</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.month(BirtDateTime.today(),1)+'/'+BirtDateTime.day(BirtDateTime.today())+'/'+BirtDateTime.year(BirtDateTime.today())</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="end_date" id="49">
+            <text-property name="helpText">1/31/2015</text-property>
+            <text-property name="promptText">To (M/d/yyyy)</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.month(BirtDateTime.today(),1)+'/'+BirtDateTime.day(BirtDateTime.today())+'/'+BirtDateTime.year(BirtDateTime.today())</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="department" id="876">
+            <text-property name="promptText">Department</text-property>
+            <property name="valueType">dynamic</property>
+            <property name="isRequired">true</property>
+            <property name="dataSetName">departmentListDSet</property>
+            <expression name="valueExpr" type="javascript">dataSetRow["DEPARTMENT_ID"]</expression>
+            <expression name="labelExpr" type="javascript">dataSetRow["DEPARTMENT_NAME"]</expression>
+            <expression name="sortByColumn">dataSetRow["DEPARTMENT_NAME"]</expression>
+            <property name="sortDirection">asc</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">false</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="MySQL Data Source" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/hr_app</property>
+            <property name="odaUser">root</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="absenteeHrAppDSet" id="362">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_4</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_5</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_6</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_7</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_8</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_9</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">9</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_10</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">10</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_11</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">11</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_12</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">12</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_13</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">13</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_14</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">14</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_15</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">15</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_16</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">16</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_17</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">17</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_18</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">18</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_19</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">19</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_20</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">20</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_21</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">21</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_22</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">22</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_23</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">23</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_24</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">24</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_25</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">25</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_26</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">26</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_27</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">27</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_28</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">28</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_29</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">29</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_30</property>
+                    <property name="paramName">department</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">30</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">date_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">day_of_week</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">EMPLOYEE_ID</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">EMP_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">NIK</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ABSENTEE_TYPE</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">DEPARTMENT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">POSITION_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">start_time</property>
+                        <property name="dataType">time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">end_time</property>
+                        <property name="dataType">time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">start_hour</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">end_hour</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">jadwal</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">start_date_time</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">end_date_time</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">START_EVENT_DATE_TIME</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">END_EVENT_DATE_TIME</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">start_event_hour</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">end_event_hour</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">hadir</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">standby_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">holiday_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">note</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">late_duration</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">early_duration</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">late_duration_sec</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">early_duration_sec</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">absentee_num</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">late</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">early</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">total_hadir</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">total_absent</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">MySQL Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">date</property>
+                    <property name="nativeName">date</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">date_name</property>
+                    <property name="nativeName">date_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">day_of_week</property>
+                    <property name="nativeName">day_of_week</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">EMPLOYEE_ID</property>
+                    <property name="nativeName">EMPLOYEE_ID</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">EMP_NAME</property>
+                    <property name="nativeName">EMP_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">NIK</property>
+                    <property name="nativeName">NIK</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ABSENTEE_TYPE</property>
+                    <property name="nativeName">ABSENTEE_TYPE</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">DEPARTMENT_NAME</property>
+                    <property name="nativeName">DEPARTMENT_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">POSITION_NAME</property>
+                    <property name="nativeName">POSITION_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">start_time</property>
+                    <property name="nativeName">start_time</property>
+                    <property name="dataType">time</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">end_time</property>
+                    <property name="nativeName">end_time</property>
+                    <property name="dataType">time</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">start_hour</property>
+                    <property name="nativeName">start_hour</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">end_hour</property>
+                    <property name="nativeName">end_hour</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">jadwal</property>
+                    <property name="nativeName">jadwal</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">start_date_time</property>
+                    <property name="nativeName">start_date_time</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">end_date_time</property>
+                    <property name="nativeName">end_date_time</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">START_EVENT_DATE_TIME</property>
+                    <property name="nativeName">START_EVENT_DATE_TIME</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">END_EVENT_DATE_TIME</property>
+                    <property name="nativeName">END_EVENT_DATE_TIME</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">start_event_hour</property>
+                    <property name="nativeName">start_event_hour</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">end_event_hour</property>
+                    <property name="nativeName">end_event_hour</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">hadir</property>
+                    <property name="nativeName">hadir</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">standby_date</property>
+                    <property name="nativeName">standby_date</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">holiday_date</property>
+                    <property name="nativeName">holiday_date</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">note</property>
+                    <property name="nativeName">note</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">late_duration</property>
+                    <property name="nativeName">late_duration</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">early_duration</property>
+                    <property name="nativeName">early_duration</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">late_duration_sec</property>
+                    <property name="nativeName">late_duration_sec</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">early_duration_sec</property>
+                    <property name="nativeName">early_duration_sec</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">absentee_num</property>
+                    <property name="nativeName">absentee_num</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">late</property>
+                    <property name="nativeName">late</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">early</property>
+                    <property name="nativeName">early</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">total_hadir</property>
+                    <property name="nativeName">total_hadir</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">total_absent</property>
+                    <property name="nativeName">total_absent</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select date, date_format(date, '%Y-%m-%d') as date_name, day_of_week, EMPLOYEE_ID, EMP_NAME, NIK, ABSENTEE_TYPE, DEPARTMENT_NAME, POSITION_NAME,
+       start_time, end_time, start_hour, end_hour, 
+       ifnull(concat(start_hour, ' - ', end_hour), '-') as jadwal, 
+       start_date_time, end_date_time, 
+       START_EVENT_DATE_TIME, 
+       END_EVENT_DATE_TIME,
+       start_event_hour, end_event_hour, 
+       case
+        when (day_of_week = 1 or day_of_week = 7) and (standby_date is null or standby_date = '') and START_EVENT_DATE_TIME is null then 'LB'
+        when holiday_date is not null and holiday_date != '' and START_EVENT_DATE_TIME is null then 'LB'
+        when (day_of_week = 1 or day_of_week = 7) and standby_date is not null and START_EVENT_DATE_TIME is null then 'A'
+        when (holiday_date is null or holiday_date = '') and START_EVENT_DATE_TIME is null then 'A'
+        else concat(start_event_hour, ' - ', end_event_hour)
+       end as hadir, 
+       standby_date,
+       case
+        when (day_of_week = 1 or day_of_week = 7) and (standby_date is null or standby_date = '') then date
+        when holiday_date is not null and holiday_date != '' then date
+        else null
+       end as holiday_date,
+       case
+        when (day_of_week = 1 or day_of_week = 7) and (standby_date is null or standby_date = '') and START_EVENT_DATE_TIME is null then 'LB'
+        when holiday_date is not null and holiday_date != '' and START_EVENT_DATE_TIME is null then 'LB'
+        when (day_of_week = 1 or day_of_week = 7) and standby_date is not null and START_EVENT_DATE_TIME is null then 'A'
+        when (holiday_date is null or holiday_date = '') and START_EVENT_DATE_TIME is null then 'A'
+       end as note,
+       case
+          when START_EVENT_DATE_TIME > (start_date_time + INTERVAL 6 MINUTE) then TIME_FORMAT(TIMEDIFF(START_EVENT_DATE_TIME, (start_date_time + INTERVAL 5 MINUTE)), '%H:%i:00')
+          else null
+       end as late_duration,
+       case
+          when END_EVENT_DATE_TIME < end_date_time then TIME_FORMAT(TIMEDIFF(end_date_time, END_EVENT_DATE_TIME), '%H:%i:00')
+          else null
+       end as early_duration,
+       case
+          when START_EVENT_DATE_TIME > (start_date_time + INTERVAL 6 MINUTE) then TIME_TO_SEC(TIME_FORMAT(TIMEDIFF(START_EVENT_DATE_TIME, (start_date_time + INTERVAL 5 MINUTE)), '%H:%i:00'))
+          else null
+       end as late_duration_sec,
+       case
+          when END_EVENT_DATE_TIME < end_date_time then TIME_TO_SEC(TIME_FORMAT(TIMEDIFF(end_date_time, END_EVENT_DATE_TIME), '%H:%i:00'))
+          else null
+       end as early_duration_sec,
+       case
+          when START_EVENT_DATE_TIME is not null or START_EVENT_DATE_TIME != '' then 1
+          else 0
+       end absentee_num,
+       late, early, total_hadir, total_absent
+from(
+    select calendar.date, DAYOFWEEK(calendar.date) as day_of_week, employee.EMPLOYEE_ID, EMP_NAME,NIK, ABSENTEE_TYPE,
+           DEPARTMENT_NAME, POSITION_NAME, start_time, end_time,
+           DATE_FORMAT(start_time, '%H:%i') as start_hour, DATE_FORMAT(end_time, '%H:%i') as end_hour,
+           STR_TO_DATE(concat(DATE_FORMAT(calendar.date, '%m/%d/%Y'), ' ',DATE_FORMAT(start_time, '%H:%i:%s')), '%m/%d/%Y %H:%i:%s') as start_date_time,
+           STR_TO_DATE(concat(DATE_FORMAT(calendar.date, '%m/%d/%Y'), ' ',DATE_FORMAT(end_time, '%H:%i:%s')), '%m/%d/%Y %H:%i:%s') as end_date_time,
+           START_EVENT_DATE_TIME, END_EVENT_DATE_TIME, 
+           DATE_FORMAT(START_EVENT_DATE_TIME, '%H:%i') as start_event_hour, DATE_FORMAT(END_EVENT_DATE_TIME, '%H:%i') as end_event_hour,
+           emp_holiday.holiday_date, standby.standby_date, late, early, total_hadir, total_absent
+    from (select calendar.date
+          from calendar
+          where date >= STR_TO_DATE(?, '%m/%d/%Y')
+                and date <= STR_TO_DATE(?, '%m/%d/%Y')) as  calendar     
+          join (select employee.EMPLOYEE_ID,
+                       (case
+                          when employee.MIDDLE_NAME is null or employee.MIDDLE_NAME = '' then concat(employee.FIRST_NAME, ' ', employee.LAST_NAME)
+                          else concat(employee.FIRST_NAME, ' ',employee.MIDDLE_NAME, ' ', employee.LAST_NAME)
+                        end) as EMP_NAME,
+                       employee.NIK,
+                       employee.ABSENTEE_TYPE,
+                       departments.DEPARTMENT_NAME,
+                       positions.POSITION_NAME
+                from employee, departments, positions
+                where ((employee.DEPARTMENT_REF = ? and ? <> 0) or (? = 0))
+                      and employee.RECORD_STATUS = 'A'
+                      and employee.DEPARTMENT_REF = departments.DEPARTMENT_ID
+                      and employee.POSITION = positions.POSITION_ID
+                order by employee.FIRST_NAME) as employee
+          left outer join absentee_type_detail on DAYOFWEEK(date) = absentee_type_detail.day_of_week and absentee_type_detail.absentee_type_id = employee.ABSENTEE_TYPE
+          left outer join (select distinct employee.EMPLOYEE_ID, STR_TO_DATE(DATE_FORMAT(absentee.EVENT_DATE_TIME, '%m/%d/%Y'), '%m/%d/%Y') as EVENT_DATE_TIME, 
+                                          min(absentee.EVENT_DATE_TIME) as START_EVENT_DATE_TIME, 
+                                          max(absentee.EVENT_DATE_TIME) as END_EVENT_DATE_TIME
+                           from new_absentee as absentee, employee
+                           where absentee.EVENT_DATE_TIME >= STR_TO_DATE(?, '%m/%d/%Y')
+                                 and absentee.EVENT_DATE_TIME <= STR_TO_DATE(?, '%m/%d/%Y')
+                                 and employee.ABSENTEE_USER_ID = absentee.USER_ID
+                                 and ((employee.DEPARTMENT_REF = ? and ? <> 0) or (? = 0))
+                                 and employee.RECORD_STATUS = 'A'
+                           group by employee.EMPLOYEE_ID, DATE_FORMAT(absentee.EVENT_DATE_TIME, '%m/%d/%Y')) as absentee on calendar.`date` = STR_TO_DATE(DATE_FORMAT(absentee.EVENT_DATE_TIME, '%m/%d/%Y'), '%m/%d/%Y') and employee.EMPLOYEE_ID = absentee.EMPLOYEE_ID
+          left outer join (select emp.employee_id, holiday.HOLIDAY_DATE
+                           FROM holiday join employee as emp on ((emp.DEPARTMENT = ? and ? <> 0) or (? = 0))
+                                                             and emp.RECORD_STATUS = 'A'
+                           where HOLIDAY_DATE >= STR_TO_DATE(?, '%m/%d/%Y')
+                                 and HOLIDAY_DATE <= STR_TO_DATE(?, '%m/%d/%Y')) as emp_holiday on employee.EMPLOYEE_ID = emp_holiday.employee_id and DATE_FORMAT(calendar.`date`, '%m/%d/%Y') = DATE_FORMAT(emp_holiday.HOLIDAY_DATE, '%m/%d/%Y')
+          left outer join standby on employee.EMPLOYEE_ID = standby.emp_id and calendar.`date` = standby.standby_date
+          left outer join (select employee_id, 
+          						  /*sec_to_time(sum(late_duration)) as late, 
+                                  sec_to_time(sum(early_duration)) as early,*/
+                                  format(floor(sum(late_duration)/3600)+mod(sum(late_duration), 3600)/3600, 2)  as late,
+                                  format(floor(sum(early_duration)/3600)+mod(sum(early_duration), 3600)/3600, 2) as early
+                            from(
+                            select distinct employee.EMPLOYEE_ID, STR_TO_DATE(DATE_FORMAT(absentee.EVENT_DATE_TIME, '%m/%d/%Y'), '%m/%d/%Y') as EVENT_DATE_TIME, 
+                                       min(absentee.EVENT_DATE_TIME) as START_EVENT_DATE_TIME, 
+                                       max(absentee.EVENT_DATE_TIME) as END_EVENT_DATE_TIME,
+                                       STR_TO_DATE(concat(date_format(absentee.EVENT_DATE_TIME, '%m/%d/%Y'),' ',absentee_type_detail.start_time),'%m/%d/%Y %H:%i:%s') as start_time,
+                                       STR_TO_DATE(concat(date_format(absentee.EVENT_DATE_TIME, '%m/%d/%Y'),' ',absentee_type_detail.end_time),'%m/%d/%Y %H:%i:%s') as end_time,
+                                   case
+                                      when min(absentee.EVENT_DATE_TIME) > 
+                                           (STR_TO_DATE(concat(date_format(absentee.EVENT_DATE_TIME, '%m/%d/%Y'),' ',absentee_type_detail.start_time),'%m/%d/%Y %H:%i:%s') + INTERVAL 6 MINUTE) 
+                                           then TIME_TO_SEC(TIME_FORMAT(TIMEDIFF(min(absentee.EVENT_DATE_TIME), (STR_TO_DATE(concat(date_format(absentee.EVENT_DATE_TIME, '%m/%d/%Y'),' ',absentee_type_detail.start_time),'%m/%d/%Y %H:%i:%s') + INTERVAL 5 MINUTE)), '%H:%i:00'))
+                                      else 0
+                                   end as late_duration,
+                                   case
+                                      when max(absentee.EVENT_DATE_TIME) < 
+                                           STR_TO_DATE(concat(date_format(absentee.EVENT_DATE_TIME, '%m/%d/%Y'),' ',absentee_type_detail.end_time),'%m/%d/%Y %H:%i:%s') 
+                                           then TIME_TO_SEC(TIME_FORMAT(TIMEDIFF(STR_TO_DATE(concat(date_format(absentee.EVENT_DATE_TIME, '%m/%d/%Y'),' ',absentee_type_detail.end_time),'%m/%d/%Y %H:%i:%s'), max(absentee.EVENT_DATE_TIME)), '%H:%i:00'))
+                                      else 0
+                                   end as early_duration
+                                from new_absentee as absentee, employee, absentee_type_detail
+                                where absentee.EVENT_DATE_TIME >= STR_TO_DATE(?, '%m/%d/%Y')
+                                      and absentee.EVENT_DATE_TIME <= STR_TO_DATE(?, '%m/%d/%Y')
+                                      and employee.ABSENTEE_USER_ID = absentee.USER_ID
+                                      and ((employee.DEPARTMENT_REF = ? and ? <> 0) or (? = 0))
+                                      and employee.RECORD_STATUS = 'A'
+                                      and employee.ABSENTEE_TYPE = absentee_type_detail.absentee_type_id
+                                      and dayofweek(absentee.EVENT_DATE_TIME) = absentee_type_detail.day_of_week
+                                group by employee.EMPLOYEE_ID, absentee_type_detail.start_time, absentee_type_detail.end_time, DATE_FORMAT(absentee.EVENT_DATE_TIME, '%m/%d/%Y')) as data
+                             group by EMPLOYEE_ID) as late_early on employee.EMPLOYEE_ID = late_early.EMPLOYEE_ID
+          left outer join (select employee_id, sum(hadir) as total_hadir, sum(absent) as total_absent
+                           from(
+                           select employee.employee_id, 
+                                  START_EVENT_DATE_TIME, 
+                                  END_EVENT_DATE_TIME,
+                                  case
+                                   when START_EVENT_DATE_TIME is null then 0
+                                   else 1
+                                  end as hadir,
+                                  case
+                                   when START_EVENT_DATE_TIME is not null then 0
+                                   else 1
+                                  end as absent
+                            from calendar 
+                                join employee on ((employee.DEPARTMENT_REF = ? and ? <> 0) or (? = 0))
+                                                 and employee.RECORD_STATUS = 'A'
+                                                 and calendar.`date` >= STR_TO_DATE(?, '%m/%d/%Y')
+                                                 and calendar.`date` <= STR_TO_DATE(?, '%m/%d/%Y') 
+                                left outer join (select distinct employee_id, 
+                                                        min(absentee.EVENT_DATE_TIME) as START_EVENT_DATE_TIME,
+                                                        max(absentee.EVENT_DATE_TIME) as END_EVENT_DATE_TIME
+                                                 from employee join new_absentee as absentee on employee.ABSENTEE_USER_ID = absentee.USER_ID
+                                                 where absentee.EVENT_DATE_TIME >= STR_TO_DATE(?, '%m/%d/%Y')
+                                                       and absentee.EVENT_DATE_TIME <= STR_TO_DATE(?, '%m/%d/%Y')
+                                                       and ((employee.DEPARTMENT_REF = ? and ? <> 0) or (? = 0))
+                                                       and employee.RECORD_STATUS = 'A'
+                                                  group by employee.EMPLOYEE_ID, DATE_FORMAT(absentee.EVENT_DATE_TIME, '%m/%d/%Y')) as cek on calendar.`date` = STR_TO_DATE(DATE_FORMAT(START_EVENT_DATE_TIME, '%m/%d/%Y'), '%m/%d/%Y')
+                                                                                                                                              and employee.employee_id = cek.employee_id
+                           ) as kehadiran
+                          group by employee_id) as kehadiran on kehadiran.employee_id = employee.EMPLOYEE_ID
+  )as absentee_data
+  order by emp_name;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>3</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>4</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>5</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>6</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>7</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>8</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>9</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>10</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>11</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>12</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>13</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>14</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>15</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>16</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>17</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>18</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>19</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>20</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>21</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>22</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>23</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>24</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>25</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>26</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>27</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>28</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>29</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>30</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="departmentListDSet" id="875">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">DEPARTMENT_ID</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">department_id</text-property>
+                    <text-property name="heading">department_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DEPARTMENT_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">department_name</text-property>
+                    <text-property name="heading">department_name</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">DEPARTMENT_ID</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">DEPARTMENT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">MySQL Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">DEPARTMENT_ID</property>
+                    <property name="nativeName">DEPARTMENT_ID</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">DEPARTMENT_NAME</property>
+                    <property name="nativeName">department_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select department_id, 
+	   case
+	   	when department_id = 0 then 'All'
+	   	else department_name
+	   end department_name
+from departments]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DEPARTMENT_ID</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>department_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>department_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>38</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DEPARTMENT_NAME</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>department_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>department_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="reportDataCube" id="1166">
+            <property name="dimensions">
+                <tabular-dimension name="DepartmentGroup" id="1167">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="1168">
+                            <property name="levels">
+                                <tabular-level name="DEPARTMENT_NAME" id="1169">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">DEPARTMENT_NAME</property>
+                                </tabular-level>
+                                <tabular-level name="NIK" id="1170">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">NIK</property>
+                                </tabular-level>
+                                <tabular-level name="EMP_NAME" id="1171">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">EMP_NAME</property>
+                                </tabular-level>
+                                <tabular-level name="POSITION_NAME" id="1172">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">POSITION_NAME</property>
+                                </tabular-level>
+                                <tabular-level name="late" id="1378">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">late</property>
+                                </tabular-level>
+                                <tabular-level name="early" id="1379">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">early</property>
+                                </tabular-level>
+                                <tabular-level name="total_hadir" id="1380">
+                                    <property name="dataType">decimal</property>
+                                    <property name="columnName">total_hadir</property>
+                                </tabular-level>
+                                <tabular-level name="total_absent" id="1381">
+                                    <property name="dataType">decimal</property>
+                                    <property name="columnName">total_absent</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="DateGroup" id="1173">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="1174">
+                            <property name="levels">
+                                <tabular-level name="date_name" id="1175">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">date_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="1176">
+                    <property name="measures">
+                        <tabular-measure name="jadwal" id="1177">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["jadwal"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="hadir" id="1178">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["hadir"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">absenteeHrAppDSet</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">8.5in</property>
+            <property name="width">100in</property>
+            <property name="orientation">landscape</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text id="445">
+            <property name="fontWeight">bold</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[SOEWITO, SUHARDIMAN, EDDY MURTHY &amp; KARDONO <BR>
+Laporan Kehadiran Karyawan per Minggu <BR>
+Period : <VALUE-OF>params["start_date"].value</VALUE-OF> to <VALUE-OF>params["end_date"].value</VALUE-OF> <BR>]]></text-property>
+        </text>
+        <label id="878"/>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1382">
+            <property name="cube">reportDataCube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="1430">
+                    <property name="measure">jadwal</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1431">
+                            <property name="aggregationOnRow">DepartmentGroup/total_absent</property>
+                            <property name="aggregationOnColumn">DateGroup/date_name</property>
+                            <property name="content">
+                                <data id="1432">
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">jadwal_DepartmentGroup/total_absent_DateGroup/date_name</property>
+                                </data>
+                            </property>
+                            <property name="width">1.03125in</property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1433">
+                            <property name="content">
+                                <label id="1434">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Jadwal</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C6F9FB</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1443">
+                    <property name="measure">hadir</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1444">
+                            <property name="aggregationOnRow">DepartmentGroup/total_absent</property>
+                            <property name="aggregationOnColumn">DateGroup/date_name</property>
+                            <property name="content">
+                                <data id="1445">
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">hadir_DepartmentGroup/total_absent_DateGroup/date_name</property>
+                                </data>
+                            </property>
+                            <property name="width">1.1666666666666667in</property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1446">
+                            <property name="content">
+                                <label id="1447">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Datang - Pulang</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C6F9FB</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="1384">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1385">
+                            <property name="dimension">DepartmentGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="1386">
+                                    <property name="level">DepartmentGroup/DEPARTMENT_NAME</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1387">
+                                            <property name="content">
+                                                <data name="DEPARTMENT_NAME" id="1388">
+                                                    <property name="resultSetColumn">DEPARTMENT_NAME</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.5208333333333333in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="1390">
+                                    <property name="level">DepartmentGroup/NIK</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1391">
+                                            <property name="content">
+                                                <data name="NIK" id="1393">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="resultSetColumn">NIK</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">0.5208333333333334in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="1395">
+                                    <property name="level">DepartmentGroup/EMP_NAME</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1396">
+                                            <property name="content">
+                                                <data name="EMP_NAME" id="1398">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="resultSetColumn">EMP_NAME</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.6770833333333333in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View3" id="1400">
+                                    <property name="level">DepartmentGroup/POSITION_NAME</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1401">
+                                            <property name="content">
+                                                <data name="POSITION_NAME" id="1403">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="resultSetColumn">POSITION_NAME</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.6354166666666667in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View4" id="1405">
+                                    <property name="level">DepartmentGroup/late</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1406">
+                                            <property name="content">
+                                                <data name="late" id="1408">
+                                                    <property name="textAlign">center</property>
+                                                    <property name="resultSetColumn">late</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">0.8229166666666666in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View5" id="1410">
+                                    <property name="level">DepartmentGroup/early</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1411">
+                                            <property name="content">
+                                                <data name="early" id="1413">
+                                                    <property name="textAlign">center</property>
+                                                    <property name="resultSetColumn">early</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">0.7604166666666666in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View6" id="1415">
+                                    <property name="level">DepartmentGroup/total_hadir</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1416">
+                                            <property name="content">
+                                                <data name="total_hadir" id="1418">
+                                                    <property name="textAlign">center</property>
+                                                    <property name="resultSetColumn">total_hadir</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">0.9375in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View7" id="1420">
+                                    <property name="level">DepartmentGroup/total_absent</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1421">
+                                            <property name="content">
+                                                <data name="total_absent" id="1423">
+                                                    <property name="textAlign">center</property>
+                                                    <property name="resultSetColumn">total_absent</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">0.9895833333333334in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="1425">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1426">
+                            <property name="dimension">DateGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View8" id="1427">
+                                    <property name="level">DateGroup/date_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1428">
+                                            <property name="content">
+                                                <data name="date_name" id="1429">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="textAlign">center</property>
+                                                    <property name="resultSetColumn">date_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#C6F9FB</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="1435">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1436">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1437">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1438">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1439">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1440">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1441">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1442">
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1383">
+                    <property name="content">
+                        <label id="1389">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Departemen</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1392">
+                    <property name="content">
+                        <label id="1394">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">NIK</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1397">
+                    <property name="content">
+                        <label id="1399">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Nama</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1402">
+                    <property name="content">
+                        <label id="1404">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Jabatan</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1407">
+                    <property name="content">
+                        <label id="1409">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Terlambat</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1412">
+                    <property name="content">
+                        <label id="1414">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Plg. Cpt</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1417">
+                    <property name="content">
+                        <label id="1419">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Hadir</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1422">
+                    <property name="content">
+                        <label id="1424">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Tdk. Hadir</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C6F9FB</property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">DEPARTMENT_NAME</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["DEPARTMENT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NIK</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["NIK"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">EMP_NAME</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["EMP_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">POSITION_NAME</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["POSITION_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">late</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["late"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">early</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["early"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">total_hadir</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["total_hadir"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">total_absent</property>
+                    <expression name="expression">dimension["DepartmentGroup"]["total_absent"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">date_name</property>
+                    <expression name="expression">dimension["DateGroup"]["date_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">jadwal_DepartmentGroup/total_absent_DateGroup/date_name</property>
+                    <expression name="expression">measure["jadwal"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>DepartmentGroup/total_absent</value>
+                        <value>DateGroup/date_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">hadir_DepartmentGroup/total_absent_DateGroup/date_name</property>
+                    <expression name="expression">measure["hadir"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>DepartmentGroup/total_absent</value>
+                        <value>DateGroup/date_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+</report>

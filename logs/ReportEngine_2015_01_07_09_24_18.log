@@ -1,0 +1,1171 @@
+Jan 07, 2015 9:25:10 AM org.eclipse.birt.data.engine.odaconsumer.PreparedStatement getRuntimeMetaData
+SEVERE: Cannot get the result set metadata.
+org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.addColumnHint(PreparedStatement.java:994)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.addColumnHints(DataSourceQuery.java:719)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepareColumns(DataSourceQuery.java:395)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepare(DataSourceQuery.java:332)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.prepareOdiQuery(PreparedOdaDSQuery.java:459)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:346)
+	at org.eclipse.birt.data.engine.impl.PreparedQuery.doPrepare(PreparedQuery.java:455)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.produceQueryResults(PreparedDataSourceQuery.java:190)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:178)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery.execute(PreparedOdaDSQuery.java:153)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:634)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteQuery(DteDataEngine.java:152)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteQuery(DataGenerationEngine.java:83)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:267)
+	at org.eclipse.birt.report.engine.executor.ExecutionContext.executeQuery(ExecutionContext.java:1941)
+	at org.eclipse.birt.report.engine.executor.QueryItemExecutor.executeQuery(QueryItemExecutor.java:80)
+	at org.eclipse.birt.report.engine.executor.GridItemExecutor.execute(GridItemExecutor.java:65)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 87 more
+
+Jan 07, 2015 9:25:35 AM org.eclipse.birt.data.engine.odaconsumer.PreparedStatement getRuntimeMetaData
+SEVERE: Cannot get the result set metadata.
+org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.addColumnHint(PreparedStatement.java:994)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.addColumnHints(DataSourceQuery.java:719)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepareColumns(DataSourceQuery.java:395)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepare(DataSourceQuery.java:332)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.prepareOdiQuery(PreparedOdaDSQuery.java:459)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:346)
+	at org.eclipse.birt.data.engine.impl.PreparedQuery.doPrepare(PreparedQuery.java:455)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.produceQueryResults(PreparedDataSourceQuery.java:190)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:178)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery.execute(PreparedOdaDSQuery.java:153)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:159)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:142)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:86)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.<init>(DataSetIterator.java:124)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1467)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimensions(DataRequestSessionImpl.java:1340)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.createCube(DataRequestSessionImpl.java:834)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:775)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:643)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteCube(DteDataEngine.java:233)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteCube(DataGenerationEngine.java:96)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:272)
+	at org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext.executeQuery(ExecutorManager.java:447)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.BaseCrosstabExecutor.executeQuery(BaseCrosstabExecutor.java:122)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor.execute(CrosstabReportItemExecutor.java:102)
+	at org.eclipse.birt.report.engine.executor.ExtendedItemExecutor.execute(ExtendedItemExecutor.java:62)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 96 more
+
+Jan 07, 2015 9:25:35 AM org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext executeQuery
+SEVERE: An exception occurred during processing. Please see the following message for details:
+exception.error
+Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+org.eclipse.birt.report.data.adapter.api.AdapterException: An exception occurred during processing. Please see the following message for details:
+exception.error
+Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:654)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteCube(DteDataEngine.java:233)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteCube(DataGenerationEngine.java:96)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:272)
+	at org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext.executeQuery(ExecutorManager.java:447)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.BaseCrosstabExecutor.executeQuery(BaseCrosstabExecutor.java:122)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor.execute(CrosstabReportItemExecutor.java:102)
+	at org.eclipse.birt.report.engine.executor.ExtendedItemExecutor.execute(ExtendedItemExecutor.java:62)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.eclipse.birt.data.engine.core.DataException: exception.error
+Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:783)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:643)
+	... 70 more
+Caused by: org.eclipse.birt.report.data.adapter.api.AdapterException: Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1482)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimensions(DataRequestSessionImpl.java:1340)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.createCube(DataRequestSessionImpl.java:834)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:775)
+	... 71 more
+Caused by: org.eclipse.birt.report.data.adapter.api.AdapterException: Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:91)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.<init>(DataSetIterator.java:124)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1467)
+	... 74 more
+Caused by: org.eclipse.birt.data.engine.core.DataException: Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:350)
+	at org.eclipse.birt.data.engine.impl.PreparedQuery.doPrepare(PreparedQuery.java:455)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.produceQueryResults(PreparedDataSourceQuery.java:190)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:178)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery.execute(PreparedOdaDSQuery.java:153)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:159)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:142)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:86)
+	... 76 more
+Caused by: org.eclipse.birt.data.engine.odaconsumer.OdaDataException: Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.newException(ExceptionHandler.java:52)
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.throwException(ExceptionHandler.java:108)
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.throwException(ExceptionHandler.java:84)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:414)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.addColumnHint(PreparedStatement.java:994)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.addColumnHints(DataSourceQuery.java:719)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepareColumns(DataSourceQuery.java:395)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepare(DataSourceQuery.java:332)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.prepareOdiQuery(PreparedOdaDSQuery.java:459)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:346)
+	... 83 more
+Caused by: org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	... 90 more
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 96 more
+
+Jan 07, 2015 9:25:35 AM org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor execute
+SEVERE: The cube result for crosstab is invalid(=null).
+Jan 07, 2015 9:26:00 AM org.eclipse.birt.data.engine.odaconsumer.PreparedStatement getRuntimeMetaData
+SEVERE: Cannot get the result set metadata.
+org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.addColumnHint(PreparedStatement.java:994)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.addColumnHints(DataSourceQuery.java:719)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepareColumns(DataSourceQuery.java:395)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepare(DataSourceQuery.java:332)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.prepareOdiQuery(PreparedOdaDSQuery.java:459)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:346)
+	at org.eclipse.birt.data.engine.impl.PreparedQuery.doPrepare(PreparedQuery.java:455)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.produceQueryResults(PreparedDataSourceQuery.java:190)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:178)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery.execute(PreparedOdaDSQuery.java:153)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:159)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:142)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:86)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.<init>(DataSetIterator.java:124)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1467)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimensions(DataRequestSessionImpl.java:1340)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.createCube(DataRequestSessionImpl.java:834)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:775)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:643)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteCube(DteDataEngine.java:233)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteCube(DataGenerationEngine.java:96)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:272)
+	at org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext.executeQuery(ExecutorManager.java:447)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.BaseCrosstabExecutor.executeQuery(BaseCrosstabExecutor.java:122)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor.execute(CrosstabReportItemExecutor.java:102)
+	at org.eclipse.birt.report.engine.executor.ExtendedItemExecutor.execute(ExtendedItemExecutor.java:62)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 96 more
+
+Jan 07, 2015 9:26:00 AM org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext executeQuery
+SEVERE: An exception occurred during processing. Please see the following message for details:
+exception.error
+Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+org.eclipse.birt.report.data.adapter.api.AdapterException: An exception occurred during processing. Please see the following message for details:
+exception.error
+Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:654)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteCube(DteDataEngine.java:233)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteCube(DataGenerationEngine.java:96)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:272)
+	at org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext.executeQuery(ExecutorManager.java:447)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.BaseCrosstabExecutor.executeQuery(BaseCrosstabExecutor.java:122)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor.execute(CrosstabReportItemExecutor.java:102)
+	at org.eclipse.birt.report.engine.executor.ExtendedItemExecutor.execute(ExtendedItemExecutor.java:62)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.eclipse.birt.data.engine.core.DataException: exception.error
+Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:783)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:643)
+	... 70 more
+Caused by: org.eclipse.birt.report.data.adapter.api.AdapterException: Error happens when create hierarchy:emp_group.NewTabularHierarchy2.
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1482)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimensions(DataRequestSessionImpl.java:1340)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.createCube(DataRequestSessionImpl.java:834)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:775)
+	... 71 more
+Caused by: org.eclipse.birt.report.data.adapter.api.AdapterException: Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:91)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.<init>(DataSetIterator.java:124)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1467)
+	... 74 more
+Caused by: org.eclipse.birt.data.engine.core.DataException: Failed to prepare the query execution for the data set: recapSalaryDset
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:350)
+	at org.eclipse.birt.data.engine.impl.PreparedQuery.doPrepare(PreparedQuery.java:455)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.produceQueryResults(PreparedDataSourceQuery.java:190)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:178)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery.execute(PreparedOdaDSQuery.java:153)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:159)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:142)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:86)
+	... 76 more
+Caused by: org.eclipse.birt.data.engine.odaconsumer.OdaDataException: Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.newException(ExceptionHandler.java:52)
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.throwException(ExceptionHandler.java:108)
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.throwException(ExceptionHandler.java:84)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:414)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.addColumnHint(PreparedStatement.java:994)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.addColumnHints(DataSourceQuery.java:719)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepareColumns(DataSourceQuery.java:395)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepare(DataSourceQuery.java:332)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.prepareOdiQuery(PreparedOdaDSQuery.java:459)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:346)
+	... 83 more
+Caused by: org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	... 90 more
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 96 more
+
+Jan 07, 2015 9:26:00 AM org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor execute
+SEVERE: The cube result for crosstab is invalid(=null).
+Jan 07, 2015 9:48:24 AM org.eclipse.birt.data.engine.odaconsumer.PreparedStatement getRuntimeMetaData
+SEVERE: Cannot get the result set metadata.
+org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.doGetMetaData(PreparedStatement.java:347)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getMetaData(PreparedStatement.java:334)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.getMetaData(DataSourceQuery.java:440)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.prepare(DataSourceQuery.java:355)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.prepareOdiQuery(PreparedOdaDSQuery.java:459)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.prepareExecution(QueryExecutor.java:346)
+	at org.eclipse.birt.data.engine.impl.PreparedQuery.doPrepare(PreparedQuery.java:455)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.produceQueryResults(PreparedDataSourceQuery.java:190)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:178)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery.execute(PreparedOdaDSQuery.java:153)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:159)
+	at org.eclipse.birt.data.engine.impl.PreparedDataSourceQuery.execute(PreparedDataSourceQuery.java:142)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:86)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.<init>(DataSetIterator.java:124)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1467)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimensions(DataRequestSessionImpl.java:1340)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.createCube(DataRequestSessionImpl.java:834)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:775)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:643)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteCube(DteDataEngine.java:233)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteCube(DataGenerationEngine.java:96)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:272)
+	at org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext.executeQuery(ExecutorManager.java:447)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.BaseCrosstabExecutor.executeQuery(BaseCrosstabExecutor.java:122)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor.execute(CrosstabReportItemExecutor.java:102)
+	at org.eclipse.birt.report.engine.executor.ExtendedItemExecutor.execute(ExtendedItemExecutor.java:62)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 96 more
+
+Jan 07, 2015 9:48:49 AM org.eclipse.birt.data.engine.odaconsumer.PreparedStatement getRuntimeMetaData
+SEVERE: Cannot get the result set metadata.
+org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.doGetMetaData(PreparedStatement.java:347)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.execute(PreparedStatement.java:563)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.execute(DataSourceQuery.java:957)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.executeOdiQuery(PreparedOdaDSQuery.java:445)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.execute(QueryExecutor.java:1208)
+	at org.eclipse.birt.data.engine.impl.ServiceForQueryResults.executeQuery(ServiceForQueryResults.java:232)
+	at org.eclipse.birt.data.engine.impl.QueryResults.getResultIterator(QueryResults.java:178)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:87)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.<init>(DataSetIterator.java:124)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1467)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimensions(DataRequestSessionImpl.java:1340)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.createCube(DataRequestSessionImpl.java:834)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:775)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:643)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteCube(DteDataEngine.java:233)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteCube(DataGenerationEngine.java:96)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:272)
+	at org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext.executeQuery(ExecutorManager.java:447)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.BaseCrosstabExecutor.executeQuery(BaseCrosstabExecutor.java:122)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor.execute(CrosstabReportItemExecutor.java:102)
+	at org.eclipse.birt.report.engine.executor.ExtendedItemExecutor.execute(ExtendedItemExecutor.java:62)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 91 more
+
+Jan 07, 2015 9:48:49 AM org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext executeQuery
+SEVERE: An exception occurred during processing. Please see the following message for details:
+exception.error
+Error happens when create hierarchy:empGroup.NewTabularHierarchy.
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+org.eclipse.birt.report.data.adapter.api.AdapterException: An exception occurred during processing. Please see the following message for details:
+exception.error
+Error happens when create hierarchy:empGroup.NewTabularHierarchy.
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:654)
+	at org.eclipse.birt.report.engine.data.dte.DteDataEngine.doExecuteCube(DteDataEngine.java:233)
+	at org.eclipse.birt.report.engine.data.dte.DataGenerationEngine.doExecuteCube(DataGenerationEngine.java:96)
+	at org.eclipse.birt.report.engine.data.dte.AbstractDataEngine.execute(AbstractDataEngine.java:272)
+	at org.eclipse.birt.report.engine.executor.ExecutorManager$ExecutorContext.executeQuery(ExecutorManager.java:447)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.BaseCrosstabExecutor.executeQuery(BaseCrosstabExecutor.java:122)
+	at org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor.execute(CrosstabReportItemExecutor.java:102)
+	at org.eclipse.birt.report.engine.executor.ExtendedItemExecutor.execute(ExtendedItemExecutor.java:62)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.emitter.ReportItemEmitterExecutor.execute(ReportItemEmitterExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.dup.SuppressDuplicateItemExecutor.execute(SuppressDuplicateItemExecutor.java:43)
+	at org.eclipse.birt.report.engine.internal.executor.wrap.WrappedReportItemExecutor.execute(WrappedReportItemExecutor.java:46)
+	at org.eclipse.birt.report.engine.internal.executor.l18n.LocalizedReportItemExecutor.execute(LocalizedReportItemExecutor.java:34)
+	at org.eclipse.birt.report.engine.layout.html.HTMLBlockStackingLM.layoutNodes(HTMLBlockStackingLM.java:65)
+	at org.eclipse.birt.report.engine.layout.html.HTMLPageLM.layout(HTMLPageLM.java:92)
+	at org.eclipse.birt.report.engine.layout.html.HTMLReportLayoutEngine.layout(HTMLReportLayoutEngine.java:100)
+	at org.eclipse.birt.report.engine.presentation.ReportDocumentBuilder.build(ReportDocumentBuilder.java:249)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.doRun(RunTask.java:269)
+	at org.eclipse.birt.report.engine.api.impl.RunTask.run(RunTask.java:86)
+	at org.eclipse.birt.report.service.ReportEngineService.runReport(ReportEngineService.java:1325)
+	at org.eclipse.birt.report.service.BirtViewerReportService.runReport(BirtViewerReportService.java:158)
+	at org.eclipse.birt.report.service.actionhandler.BirtRunReportActionHandler.__execute(BirtRunReportActionHandler.java:81)
+	at org.eclipse.birt.report.service.actionhandler.BirtChangeParameterActionHandler.runReport(BirtChangeParameterActionHandler.java:58)
+	at org.eclipse.birt.report.service.actionhandler.AbstractChangeParameterActionHandler.__execute(AbstractChangeParameterActionHandler.java:53)
+	at org.eclipse.birt.report.service.actionhandler.AbstractBaseActionHandler.execute(AbstractBaseActionHandler.java:90)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseDocumentProcessor.__executeAction(AbstractBaseDocumentProcessor.java:47)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.executeAction(AbstractBaseComponentProcessor.java:143)
+	at org.eclipse.birt.report.soapengine.processor.BirtDocumentProcessor.handleChangeParameter(BirtDocumentProcessor.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.birt.report.soapengine.processor.AbstractBaseComponentProcessor.process(AbstractBaseComponentProcessor.java:112)
+	at org.eclipse.birt.report.soapengine.endpoint.BirtSoapBindingImpl.getUpdatedObjects(BirtSoapBindingImpl.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)
+	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)
+	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)
+	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)
+	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)
+	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)
+	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)
+	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)
+	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.doPost(BirtSoapMessageDispatcherServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.eclipse.birt.report.servlet.BirtSoapMessageDispatcherServlet.service(BirtSoapMessageDispatcherServlet.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:304)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.eclipse.birt.report.filter.ViewerFilter.doFilter(ViewerFilter.java:68)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:185)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:151)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:929)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:405)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:515)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:302)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.eclipse.birt.data.engine.core.DataException: exception.error
+Error happens when create hierarchy:empGroup.NewTabularHierarchy.
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:783)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.execute(DataRequestSessionImpl.java:643)
+	... 70 more
+Caused by: org.eclipse.birt.report.data.adapter.api.AdapterException: Error happens when create hierarchy:empGroup.NewTabularHierarchy.
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1482)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimensions(DataRequestSessionImpl.java:1340)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.createCube(DataRequestSessionImpl.java:834)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.materializeCube(DataRequestSessionImpl.java:775)
+	... 71 more
+Caused by: org.eclipse.birt.report.data.adapter.api.AdapterException: Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:91)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.<init>(DataSetIterator.java:124)
+	at org.eclipse.birt.report.data.adapter.impl.DataRequestSessionImpl.populateDimension(DataRequestSessionImpl.java:1467)
+	... 74 more
+Caused by: org.eclipse.birt.data.engine.odaconsumer.OdaDataException: Cannot get the result set metadata.
+    org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.newException(ExceptionHandler.java:52)
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.throwException(ExceptionHandler.java:108)
+	at org.eclipse.birt.data.engine.odaconsumer.ExceptionHandler.throwException(ExceptionHandler.java:84)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:414)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getProjectedColumns(PreparedStatement.java:377)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.doGetMetaData(PreparedStatement.java:347)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.execute(PreparedStatement.java:563)
+	at org.eclipse.birt.data.engine.executor.DataSourceQuery.execute(DataSourceQuery.java:957)
+	at org.eclipse.birt.data.engine.impl.PreparedOdaDSQuery$OdaDSQueryExecutor.executeOdiQuery(PreparedOdaDSQuery.java:445)
+	at org.eclipse.birt.data.engine.impl.QueryExecutor.execute(QueryExecutor.java:1208)
+	at org.eclipse.birt.data.engine.impl.ServiceForQueryResults.executeQuery(ServiceForQueryResults.java:232)
+	at org.eclipse.birt.data.engine.impl.QueryResults.getResultIterator(QueryResults.java:178)
+	at org.eclipse.birt.report.data.adapter.impl.DataSetIterator.executeQuery(DataSetIterator.java:87)
+	... 76 more
+Caused by: org.eclipse.birt.report.data.oda.jdbc.JDBCException: SQL statement does not return a ResultSet object.
+SQL error #1:Subquery returns more than 1 row
+ ;
+    java.sql.SQLException: Subquery returns more than 1 row
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:481)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaUsingPolicy1(Statement.java:420)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.getMetaData(Statement.java:316)
+	at org.eclipse.birt.report.data.oda.jdbc.bidi.BidiStatement.getMetaData(BidiStatement.java:56)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.doGetMetaData(OdaQuery.java:412)
+	at org.eclipse.datatools.connectivity.oda.consumer.helper.OdaQuery.getMetaData(OdaQuery.java:379)
+	at org.eclipse.birt.data.engine.odaconsumer.PreparedStatement.getRuntimeMetaData(PreparedStatement.java:407)
+	... 85 more
+Caused by: java.sql.SQLException: Subquery returns more than 1 row
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1078)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2322)
+	at org.eclipse.birt.report.data.oda.jdbc.Statement.executeQuery(Statement.java:477)
+	... 91 more
+
+Jan 07, 2015 9:48:49 AM org.eclipse.birt.report.item.crosstab.core.re.executor.CrosstabReportItemExecutor execute
+SEVERE: The cube result for crosstab is invalid(=null).

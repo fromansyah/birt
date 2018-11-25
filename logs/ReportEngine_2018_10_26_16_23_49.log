@@ -1,0 +1,4 @@
+Oct 26, 2018 4:24:18 PM org.eclipse.birt.report.engine.emitter.excel.layout.Page needOutputInMasterPage
+WARNING: Excel page header and footer don't support html text.
+Nov 01, 2018 6:54:32 PM org.eclipse.birt.report.engine.emitter.excel.layout.Page needOutputInMasterPage
+WARNING: Excel page header and footer don't support html text.

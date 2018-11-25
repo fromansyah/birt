@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.2.v201301221637 Build &lt;4.2.2.v20130206-1509></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="ot_id" id="361">
+            <text-property name="promptText">OT ID</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="MySQL Data Source" id="16">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/hr_app</property>
+            <property name="odaUser">root</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="reportDSet" id="362">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">ot_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">emp_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">emp_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">NIK</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">ot_type</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">requestor_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">start_date_time</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">end_date_time</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">total_hours</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">amount</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">ot_status</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">NAME_13</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">desc</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">client_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">CLIENT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">matter_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">MATTER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">from</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">to</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">total_time</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">desc_22</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">batch_number</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">MySQL Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">emp_id</property>
+                    <property name="nativeName">emp_id</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">emp_name</property>
+                    <property name="nativeName">emp_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">NIK</property>
+                    <property name="nativeName">NIK</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">ot_type</property>
+                    <property name="nativeName">ot_type</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">NAME</property>
+                    <property name="nativeName">NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">requestor_name</property>
+                    <property name="nativeName">requestor_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">start_date_time</property>
+                    <property name="nativeName">start_date_time</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">end_date_time</property>
+                    <property name="nativeName">end_date_time</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">total_hours</property>
+                    <property name="nativeName">total_hours</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">amount</property>
+                    <property name="nativeName">amount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">ot_status</property>
+                    <property name="nativeName">ot_status</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">NAME_13</property>
+                    <property name="nativeName">NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">desc</property>
+                    <property name="nativeName">desc</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">client_id</property>
+                    <property name="nativeName">client_id</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">CLIENT_NAME</property>
+                    <property name="nativeName">CLIENT_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">matter_id</property>
+                    <property name="nativeName">matter_id</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">MATTER_NAME</property>
+                    <property name="nativeName">MATTER_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">from</property>
+                    <property name="nativeName">from</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">to</property>
+                    <property name="nativeName">to</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">total_time</property>
+                    <property name="nativeName">total_time</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">desc_22</property>
+                    <property name="nativeName">desc</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">batch_number</property>
+                    <property name="nativeName">batch_number</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select employee_ot.id,
+                                        employee_ot.emp_id,
+                                        case
+                                           when employee.MIDDLE_NAME = null or employee.MIDDLE_NAME = '' then concat(employee.FIRST_NAME,' ',employee.LAST_NAME)
+                                           else concat(employee.FIRST_NAME,' ',employee.MIDDLE_NAME,' ',employee.LAST_NAME)
+                                        end as emp_name,
+                                        employee.NIK,
+                                        employee_ot.ot_type,
+                                        overtime_type.NAME as overtime_type_name,
+                                        case
+                                           when requestor.MIDDLE_NAME = null or requestor.MIDDLE_NAME = '' then concat(requestor.FIRST_NAME,' ',requestor.LAST_NAME)
+                                           else concat(requestor.FIRST_NAME,' ',requestor.MIDDLE_NAME,' ',requestor.LAST_NAME)
+                                        end as requestor_name,
+                                        start_date_time,
+                                        end_date_time,
+                                        total_hours,
+                                        amount as tmt,
+                                        ot_status,
+                                        overtime_status.NAME as overtime_status_name,
+                                        employee_ot.desc as description,
+                                        ot_detail.client_id,
+                                        client.CLIENT_NAME,
+                                        ot_detail.matter_id,
+                                        client_matter.MATTER_NAME,
+                                        ot_detail.from,
+                                        ot_detail.to,
+                                        case
+                                           when ot_detail.total_time is null then total_hours
+                                           else ot_detail.total_time
+                                        end as total_time,
+                                        ot_detail.desc as detail_desc,
+                                        batch_number
+                                 from employee_ot
+                                      join employee on employee_ot.emp_id = employee.EMPLOYEE_ID
+                                      join master_data as overtime_status on employee_ot.ot_status = overtime_status.VALUE and overtime_status.TYPE = 'OVERTIME_STATUS'
+                                      join master_data as overtime_type on employee_ot.ot_type = overtime_type.VALUE and overtime_type.TYPE = 'OVERTIME_TYPE'
+                                      left outer join employee as requestor on employee_ot.request_by = requestor.EMPLOYEE_ID
+                                      left outer join ot_detail on employee_ot.id = ot_detail.ot_id
+                                      left outer join client on ot_detail.client_id = client.CLIENT_ID
+                                      left outer join client_matter on ot_detail.matter_id = client_matter.CLIENT_MATTER_ID
+                                 where employee_ot.id in (?)
+                                 order by ot_status, start_date_time, employee.FIRST_NAME, employee.MIDDLE_NAME, employee.LAST_NAME]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">auto</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <image id="7">
+            <property name="height">1.2526315789473683in</property>
+            <property name="width">1.2842105263157895in</property>
+            <property name="source">embed</property>
+            <property name="imageName">logo_ssek.png</property>
+        </image>
+        <label id="364">
+            <property name="fontSize">12pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Over Time Authorization</text-property>
+        </label>
+        <label id="365"/>
+        <table id="8">
+            <property name="dataSet">reportDSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">id</property>
+                    <text-property name="displayName">id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["id"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">emp_id</property>
+                    <text-property name="displayName">emp_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["emp_id"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">emp_name</property>
+                    <text-property name="displayName">emp_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["emp_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NIK</property>
+                    <text-property name="displayName">NIK</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NIK"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ot_type</property>
+                    <text-property name="displayName">ot_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ot_type"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">NAME</property>
+                    <text-property name="displayName">NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">requestor_name</property>
+                    <text-property name="displayName">requestor_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["requestor_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">start_date_time</property>
+                    <text-property name="displayName">start_date_time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["start_date_time"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">end_date_time</property>
+                    <text-property name="displayName">end_date_time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["end_date_time"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">total_hours</property>
+                    <text-property name="displayName">total_hours</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_hours"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">amount</property>
+                    <text-property name="displayName">amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["amount"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">ot_status</property>
+                    <text-property name="displayName">ot_status</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ot_status"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">NAME_13</property>
+                    <text-property name="displayName">NAME_13</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NAME_13"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">desc</property>
+                    <text-property name="displayName">desc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["desc"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">client_id</property>
+                    <text-property name="displayName">client_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["client_id"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">CLIENT_NAME</property>
+                    <text-property name="displayName">CLIENT_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CLIENT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">matter_id</property>
+                    <text-property name="displayName">matter_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["matter_id"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">MATTER_NAME</property>
+                    <text-property name="displayName">MATTER_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MATTER_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">from</property>
+                    <text-property name="displayName">from</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["from"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">to</property>
+                    <text-property name="displayName">to</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["to"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">total_time</property>
+                    <text-property name="displayName">total_time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_time"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">desc_22</property>
+                    <text-property name="displayName">desc_22</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["desc_22"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">batch_number</property>
+                    <text-property name="displayName">batch_number</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["batch_number"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="15"/>
+            <group id="411">
+                <property name="groupName">otGroup</property>
+                <expression name="keyExpr" type="javascript">row["id"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["id"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="412">
+                        <cell id="413">
+                            <grid id="366">
+                                <property name="width">7.666666666666667in</property>
+                                <column id="367">
+                                    <property name="width">0.7291666666666666in</property>
+                                </column>
+                                <column id="368">
+                                    <property name="width">0.20833333333333334in</property>
+                                </column>
+                                <column id="369">
+                                    <property name="width">6.729166666666667in</property>
+                                </column>
+                                <row id="370">
+                                    <cell id="371">
+                                        <label id="394">
+                                            <text-property name="text">Slip #</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="372">
+                                        <label id="400">
+                                            <text-property name="text">:</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="373">
+                                        <data id="406">
+                                            <property name="resultSetColumn">id</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="374">
+                                    <cell id="375">
+                                        <label id="395">
+                                            <text-property name="text">Name</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="376">
+                                        <label id="401">
+                                            <text-property name="text">:</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="377">
+                                        <data id="407">
+                                            <property name="resultSetColumn">emp_name</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="378">
+                                    <cell id="379">
+                                        <label id="396">
+                                            <text-property name="text">Date</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="380">
+                                        <label id="402">
+                                            <text-property name="text">:</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="381">
+                                        <text id="408">
+                                            <property name="contentType">html</property>
+                                            <text-property name="content"><![CDATA[<VALUE-OF format="m/d/yyyy">row["start_date_time"]</VALUE-OF> <VALUE-OF format="Short Time">row["start_date_time"]</VALUE-OF> - <VALUE-OF format="Short Time">row["end_date_time"]</VALUE-OF>]]></text-property>
+                                        </text>
+                                    </cell>
+                                </row>
+                                <row id="382">
+                                    <cell id="383">
+                                        <label id="397">
+                                            <text-property name="text">Total time</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="384">
+                                        <label id="403">
+                                            <text-property name="text">:</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="385">
+                                        <data id="409">
+                                            <property name="resultSetColumn">total_hours</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="386">
+                                    <cell id="387">
+                                        <label id="398">
+                                            <text-property name="text">For</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="388">
+                                        <label id="404">
+                                            <text-property name="text">:</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="389">
+                                        <data id="410">
+                                            <property name="resultSetColumn">desc</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="425">
+                                    <cell id="426">
+                                        <label id="399">
+                                            <text-property name="text">Detail</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="427">
+                                        <label id="405">
+                                            <text-property name="text">:</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="428"/>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </header>
+                <footer>
+                    <row id="414">
+                        <cell id="415"/>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="11">
+                    <cell id="12">
+                        <grid id="417">
+                            <property name="height">0.28125in</property>
+                            <property name="width">7.645833333333333in</property>
+                            <column id="418">
+                                <property name="width">0.7291666666666666in</property>
+                            </column>
+                            <column id="419">
+                                <property name="width">0.21875in</property>
+                            </column>
+                            <column id="420">
+                                <property name="width">0.96875in</property>
+                            </column>
+                            <column id="430">
+                                <property name="width">1.8020833333333333in</property>
+                            </column>
+                            <column id="434">
+                                <property name="width">3.71875in</property>
+                            </column>
+                            <row id="421">
+                                <property name="height">0.28125in</property>
+                                <cell id="422"/>
+                                <cell id="423"/>
+                                <cell id="424">
+                                    <text id="432">
+                                        <property name="contentType">html</property>
+                                        <text-property name="content"><![CDATA[<VALUE-OF format="Short Time">row["from"]</VALUE-OF> - <VALUE-OF format="Short Time">row["to"]</VALUE-OF>]]></text-property>
+                                    </text>
+                                </cell>
+                                <cell id="429">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <text id="437">
+                                        <property name="contentType">html</property>
+                                        <text-property name="content"><![CDATA[<VALUE-OF>BirtStr.concat(row["CLIENT_NAME"],'-',row["MATTER_NAME"])</VALUE-OF>]]></text-property>
+                                    </text>
+                                </cell>
+                            </row>
+                            <row id="439">
+                                <property name="height">0.28125in</property>
+                                <cell id="440"/>
+                                <cell id="441"/>
+                                <cell id="442"/>
+                                <cell id="443">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <data id="438">
+                                        <property name="resultSetColumn">desc_22</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+        <data id="491">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">ot_id</property>
+                    <expression name="expression" type="javascript">params["ot_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">ot_id</property>
+        </data>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">logo_ssek.png</property>
+            <property name="type">image/png</property>
+            <property name="data">
+                iVBORw0KGgoAAAANSUhEUgAAAHoAAAB3CAIAAABDpcNtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+                wgAADsIBFShKgAAAFRVJREFUeF7tnQdYVFcWxzXVYC8pm2x2k9WU3Wh2k91EN5pYURTsCorYFbELiliQ
+                ZgMFG/aGDRsWLGBHwQKo2AE1KjYEVCwgFlCzv+GRcZy5782AOmbne37v44OZ++4993/P+d9zzznvWfy3
+                337r0T0gNHR7mTIli6n/XjUCwN29m3+Jd+t98H5T9XrVCBRT4X7VEOv2r8JtVptW4VbhttxdRNVuVbtV
+                7Tbn9m3BY6lkopKJSiYWbODmnJpKJiqZqGRiTouz4LFUMlHJRCUTCzZwc05NJROVTFQyMafFWfBYKpmo
+                ZKKSiQUbuDmnppKJSiYqmZjT4ix4LJVMVDJRycSCDdycU1PJRCUTlUzMaXEWPJZKJiqZqGRiwQZuzqmp
+                ZKKSiUom5rQ4Cx5LJROVTFQysWADN+fUVDJRyUQlE3NanAWPpZKJSiYqmViwgZtzaiqZqGSikok5Lc6C
+                x1LJRCUTlUws2MDNOTWVTFQyUcnEnBZnwWOpZKKSiUomFmzg5pyaSiZ/DDJ5v5Jd+XKNS5VsaPVeg/dK
+                1Ofil9KlGvIhXxVZI96v1LRiBdsypRuVtLIu6LZE/VIlrcuWsalU0bbI3f6/3CjQbmbOG3iB4PPP7GvU
+                6NXQ2tW2yVDbJu4N6g/68Yeen/21DV/RAMgKNUlQllaOu/71z6516/Rv0ngIPds0Gvxzrb7f/MOpQvkm
+                0qLSUrlnllxaqiJf5cra6A5RqaKdVqt0+0QnFHSrXFlZMeSm8Bzc0oT//nWHQQOnbtq478yZy3fu3Hv6
+                5Cmv5eXf48dPbt3KSk6+uHHjPjfX4GpVO9OYmRsFHYkluVs0Hz57VnjC4dNp6ZkPH+VK3fIvJ+fB5csZ
+                sbGnpkxZzRogRikra7luK1ZoUqd2f1+fEG/vhUW7uLexzRD6kYYA68p/c3B3n+nj81yHPj4hAwZM+fMn
+                LYWIly/b+Lt/dfX2XmAow7hxS2vV6qPtX3ciz+BGqT/6sJnXqPnMXAuEwi/Xrt30H7/00z+3UlZzJlPS
+                qgEqvGvXYVO6ffLkydYtcQ0aDLKyaiCcZ9kyjTw8ZpvSlUKbwMCV9CMBwer++/se2dn3DdtfuXK9SuV2
+                hiyHYNy1ZUuccIhrqTerVu0kC3eP7v7FitWqUtlB7n4FufftO/Fttc5yiCMWdI8p3Mt5UCiAsrJz+vYJ
+                YueA6/XUHJjc3KYXqjfDxiigLtzff9c9Pf2WYTPsG8U3hBtj7ddvslAGqMCxvS+SC61To92dOo4pXdJ6
+                d1RC0eZw+PDpv31uX6G8gHDBur+MWEbHgru6dh1nKPdrhxvKhkhTU28Ip6B5z39pG0MtkdDXwN22jRe0
+                ZXT+Cg3mzN6gVRbtqrId/fRfF9i/yD2np2cyMcxWV1NeL9zgiAArV+4UTurq1etVv+mksJ9p4B4zenF6
+                WqbYNJ4+jT+YtGL5jiVLtsYeOCUHXPa9+zWqO5cv9xwu5cvZhK2Kkrvl0qV0ttyQkAh+Aqtcs0mTVmEi
+                Lx3ugIDlRSMTvLKOTn5Pnxa4D3pi9+kdBM8o+A4auM+cuSReq9Qb7Ry8oXzJNwLNrl3G3ZXRVh/vhboM
+                TuMf/tMj665YtWfMWPdFlfZsoVbvaTy/f37bZevWeKEMyIbryX6rnYOCduPhZGTcum7sunHjtqfnPK0v
+                iPWYyN20ZIc7d+6qUNTIyFgaKB9KNHAL/+XlPe7Yccxbb9bGhcSCpOPJ22/VGSbjFezYcUjXmQWUvn3F
+                m8m2rfEsDBeS5fescRO/+srx8hWBR/ToUW69ugOgS1PgDlkYUfWbjt9/1035+vf33UFNi4vpcGNns2eH
+                C+HCRa5e3RnvTtktloU7OeniJx+30FUryWf6+9dOuICGQyYlpvzl09ba9sC9cGGEULJOHUcbboBo+qxZ
+                64XtnZxG624MCto9KWjlO2/XldZS4SpdqpHufmAi3GDdrNkwtFAopOfIeUzB6BFEFm7cZMPdT0J8//4T
+                hkOmpKR9/VUH7WmK7ULoaOfm5tWt85y2SiIyFn6IcCaursEmwj1taphQZmUUTIGbeXHeOXbsV6GEB/af
+                /PCDZqYEIWTh3rH9oNCbLlO64ZYtsYaj3r6dBQVLvj0UwdgHDyYZNnv4MLdO7X665PA73DbNmw0TK47n
+                3NcON3Tn779MKN79+w85lJkY0pCFOyHhTD636kejwJEjYm+XIBeXQO3Fn507jf3rX1pL7SW4Dx1KNpSP
+                Lb1Vq5GGwtH+qy8ddfuUfqfnGtV76SqOApm8Iu3GGyHCc++e+KQGg9HAKI0887uFi5aT87BRQzerEgI+
+                gsUIUeldOBi6a4OF7tt3XNjzokVbrErUNzQ9DNawWz7RMwUzw/35Z20RNSZGPJfExAsomfC8LnuqlHNO
+                Dh86/c0/Or77Tj29g4YpKwkoa9fuEfYMfffrOwnPkmWTO30pDGFmuIkjDXWfKZwI4Z02rTz1jgVF9Eyk
+                AX799Uq3ruM//KApWmbUy9E7jOCJyy3k48ePZ85cB9cDOrSo5/8oS6wA9+RJq/KtwUb50tMeha3y5Inz
+                uKHXr98WTiRkYSROjinKp22j4e7MzLtyuEifH4xPwj2AW0u8SyoAlTSeXmDCxMdz8/IUeuYwifNXv97A
+                /Ah7fRNtSAHuuXM2YPvIqXDhPhHh0bUqBbjRtujoo8IpXLyo8cT0DtJGodfAzZyzs3OUEedbBuBIXbNm
+                b8wHrVQmrPz52O3Zc8Rotw8ePIqMOMDJGDdfylooM4wC3HfuZF+4cC0lRem6mJLGgUD3RKYA95PfY/16
+                s0BmXAPTd8jntLt9O5/gqWuM4iI1yMrKWbNmT5vWnnSRD7ps5gWdbWwzGM/PxJ7xakcMn8OxkG4V/KoX
+                D1Ft335I17NUgFtOctaVEIVeSsioahdEBJ06jK5QvjHJFBNxkZrh23ftMrZieVu52C69YwfuQ2YUqlsC
+                m0FBK4mrQS/Cg8OLw71584EXhJsZLVoUaaKvrbsMGjLhf2MtVqwmfBcZKU5PKOAVsfkAfjFeoHBtn6UX
+                ZJxWuZ6vXs0gcYX6GAYz/yBwP7j/sG7dAYVyHwq0W/rfWJkGJ1Eyb3IbsRw07Hj29l5ygUdt8mxvzLFC
+                qTmNIdmPPmz+0uPdL0W7ES88fC9ngkL5soLUMAGz4OA1JNxMR4cTl52dh5wHikAsBt4kp8TCUhY2qxfV
+                fHHt3rUr4cXJBHDINzW18ygUpQgKH/AlCUPDnkMGT8cNIiZgCu5nz16pXFmQ1tOSDKhhQxhQq5YjFi/e
+                QnrBlG5p4+IyUde9VYCbsEFQ0ArS+QrXtGlhvXsHmhgRNCphVFQCG4wpnvGzQ7zhf+2MPrJooINYtX/p
+                N27sEuodjI49fPgcAljKG3TF34tJvv7SsXt3/4iIA0aXM/HUBb3QrlxqOHDi8jeK/6xcfEL8oMzz6SFT
+                PJOUC9dw/gwRIK1DItj0g6WRojWWDh4AdybMyft0sjjvI8kBUeBrm8JlqINUPMSisuGsWCFO/Wmn16yp
+                h3ZTUj7ES2678qWnEEbhvnM7u1bN3ps27Rcq3KGDyRz0TYm+FmyVpMTefkuTtdG99FDDQyB4QhXA+vUx
+                cmpO4opKF8lOAVSvQ+lPvfO6tJGWLmXt3HMCCU+5nr1GLdCyrTljJpI8I0fMffON2tA0sQehhC69Ak08
+                8hSuJBPd+dNHzTnTC0cl0cWJ3DCWbdT/RzXIwri5Bcud4kJCIl8X3Hv2HEV+FAWF2xIpCPQDBUz76afE
+                BY3XOGrg5uB78GAyAW7ttX//ScoBhUEMuEUu7UJXdrZDsXpy8K1aeR458qxDqWc+GTN6Ed8aLgCyfvJx
+                y9OnxWTFOfa1wH37djYFcigZbhUC2NoOlUueeQydpZyDNxLvRk8pgzPEhUX+bw0XYYkXcEski2TOzhOF
+                FrByxU65/BYbjhxTrV0b/VrgRm3zd2mN2sKuzJ29XTivy5fTq1RpZzTwLc7msOGSshHGBPI3lm7CEi/8
+                UDIS3AU03br5y8Et56ji1eBlC+9aFrr9tcCtV7SGDFSM5spkh8eOXWKUwWWTZ106jxXiwgrX/Kk3FR2G
+                uGB6KD4NUHAHBy8hcHtjjssVGaHdcrt/YOCKPwLcKDg7k5yQGddvVatKCdVztU169CALN4rGYceQTIgc
+                DZapiOSkQ0k4podMcBFZG0PEr9+4Xa1aZ0O7YQ2oNb0iKjWhE4pGTYE7cOKKN9/4hQCO0Uu3cNuUTLwW
+                B8TA7oVTQ87p09cq++CycFOnUqfOABxEoAFBPDYQwX/49tvO58+nCjVXu6Gx71EkLle4PGP6WimJA9NJ
+                /iI2WNKq/rRp4iAwsfj8iriCjUTBEWRjYGeztnZVvho2dKP4Ir9wu6Dg2MQqKonBUaaNG/YKEbh79171
+                H50VfDNZuOmO0pFu3cZ/UaUd90Ms+DoODt4kQ+W8YwK5Wh1kkTbLnAvYGGbNCieOyIEeXahUwfbHH5zn
+                zt0o1y0hDhMz8aT5nzx9ijepfNEsLS2THUhyvQql3bRnjmxRj0S2yxSWLt2mEEXRwP3woeB4qp0859e4
+                2FO4hsrn+ISE0x//6VnVFfTd0Wm0HIJ8jiIcPXKW8nACHZC+QkvWWHcCLx6iYqwbN+4UGW4QR5kIBwpl
+                5qxPelMuMKuBe968jeRoFCZs9KtHj/JwAXVBgXzwVXfvNp48U+6ccun8h6+eFdW/FLjxrF4EbtCEr5i1
+                UPgNGwjMiku8NXBzPOUMff++ko4rgALLE2wiQfF8lUh9okUUFJ48KUs+ykDDOeHrYyqUa0xZKPuztvPi
+                xWr16TPJqAYoN4BMvvyifX7P9fj55ReOfGJ4CwaNLr/zdh3DApjixX6eP2+TcBQpMPtG8V8M79LAPWXy
+                anSTZFgR5gAoYauj2rbxhDo6dXru6txpTJs2nhMmhCqTldygZKJ7uwS2c/CiH92eHdt7yxV7mi4/9OXm
+                Os2pgy8985PHWYSERiavl/ME0tZ6U+PP9u28/fxCQFY4aHxcoqOjj+Fdz7ZKuRJx0+fwclv+0eR5KbNT
+                8kxeygBqJ7oIqHCbVR9UuFW4zYqAWQdTtVuF26wImHUwVbtVuM2KgFkHe7XazVGFEn+zTih/MA57Ck8i
+                m18e7YgauCdOWE7ATygEOUlqekixF03EU6cuLF2yzcR7AwJCSR+b2FjbjCfexo5drFuffvlSRq9eE517
+                Bnh5zRfW4pgyxL179+mWn1R7bd4srjDR9kO+mOfY5Q70+sccHgehkJV82PHj59aviz5+vODpQeJ5BOQc
+                2/sAN/kLXiizc8chbub3pKSUrVvjYmKOSaUKSUkXKc2RojxEVnkqZ+9ezbNDvA8keo+mEpM0DQLF51dM
+                EH08evQsWWCG0xWlS5dxPHqs/YR4Bbdoc/Mx0cd4kJs/sRiUYP36aJ43RBKeuEZCQNfeyHPNmgcEsnJa
+                txpJ7p/PeZlFeHiMVGl+9sxlKs0o4JcyMshAUuLqVc3rG8hGEae7lZl15XIGQnZw9KVyhodaWrQYTgSR
+                lduwYR+ZM0JAIMvT40gLIJgvMeTatftJr8ygtiksbDdhO+GiarSbB+dJIRJ9/uXnvhMCQps29UD6bdvi
+                7duOGjZsFu8vog3ZQiq1idesWrUrMzOLNyZhE/w8cfwcrzmgMIi8ERElpkQzvnLq4MeTVHFxidTEMDEC
+                WLynx95+FFOKj08k20kbBtKttqVgUxuwzbqb49JrIqjx8o+M9Fv79h63b+s1zGNWg/oDycx6jpw72m8R
+                VV2rV0fRsnu38dS3S9MjdcBz/FgVv6el3dQszLpoNH2o+wzeYcKHTe2GjvKcx0oQJr1wIZXG04PX9OwZ
+                AGoU7/F0SGRELLEnJkLGjuejx45ZTDKBeFlAwLKRI+cOHjx9/vxNFNrxpAB2T6Z4/74TAP3TTy4aJYs5
+                TkAtwH+Z3NNTBXCjpxRfDeg/GYEYNeVC2vDhs3mbzO072eSIc+49IAAGG/LqEmfnCWDEh7Rk2mgKSte6
+                tSdLbd3AlYTZoIHT/Mcvo5aTFY6OPubuPgNdgKzIUdjYDCZUFhub6DpoGrd3cPRLTEzRaoEu3DzJ0Kih
+                KyU1jaxdsQlfn4WgA3bt2/tQbYtxUFrEC1x4eAU11IUba0OYkyfPa7sFSlb95s07IEtjSvowCKCZPHkV
+                WUAKY7Zvi2fuGA348noB4B49ehFw0y3tDxw4xfLQGyLxYC5LPspzPiQDrBRVkR1dE7YbMkER8/Lyovcc
+                5QVQKI2e4WqFeQY3yjjYLZgvevYIuHgxnfwvhMCozArgnJz8eGLqxMnzCAHcLAktR3nOBdAN4XuxuzVr
+                dsM8hDFJuaHpDvbedMjj3B4es7A+DHzO7HA6STh8Ji42kSIYCW5YSBdubTny4UPJdrbu9LlgwWbQoRZ3
+                585DzKpHD3+mGjxtDZoFCrw5Qg9utNvB3kuCe+XKXcnJl1BtJo+9IiRTwFxSU6+HhUUBNx0CDWtPABbC
+                JOgP6UXtShgzZrEEN8TIkqNV9MbLB3jrC++DQt+RgW/R8QD/UILy8HDPfMFQiIiIWHYO2gh9BA3cUAFK
+                Gh+X1Kd3IH/CA0A2c8Y6X9+FUApvyUI9WXm4mxyjt9eCjAzo0hd1kFAAI1YImh4xYg48M2TIDHQWu8Po
+                yI25uU5nt4F2MMyWLUZAdljfgP5TGKhli5GS1Uv/4O7pwWup50o8lQLnQGXcwpswUq/eCF22HVVAJZs0
+                cQcCfsbGnQJx5s8C63G3n98i2IDMQENrN/qhGcvD2y/Iu+blPuapIkwwNHQbT/sePforrw64mHINTkCl
+                eMPFps37x49byh4L3HQLR0VFHUEtgLJF82GghIQsDzLwLR/6+S4i3A+tt2wxnCwuOwQagK3Y2Q0V5no0
+                cPNeCrYgSteWLdV4ESQpAJTh6RetnDo1jA9PnDg3cMBU8GUHYzAyucANdaJHUDM2BZNKz62ymfTtMwmY
+                sF/KYthCUSIa0BVGinAY7PLlO2iJZLqvGKLoG0tyHRQcFLiSBeaFNTyhDX1ze9q1myCLq9C2zSj+ZFwo
+                i/JiIENOBNate0GFMXmqwpeHbmcU1ozthAVmc+LPmTPX38q8C73AgfAST2v07z9FaglfoeC+viE83pCb
+                +5g50u211BtMjemzu9KSQYMCV0iDsiSbNu6XnkXnQxQUvmWsgQOnyr2e5dX63VrNfcFf4BaoY+LE5ezk
+                Mi/KecERzHT7/wBdwhj/2GjwDgAAAABJRU5ErkJggg==
+            </property>
+        </structure>
+    </list-property>
+</report>
